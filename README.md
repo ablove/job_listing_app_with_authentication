@@ -1,111 +1,92 @@
 # Job Listing Application
 
-A modern, responsive job listing application built with Next.js and Tailwind CSS. This application allows users to browse job listings, view detailed job descriptions, and filter jobs by various criteria.
+A modern, responsive job listing application built with Next.js, Tailwind CSS, and RTK Query. This application allows users to browse job opportunities, view detailed job descriptions, and filter jobs by various criteria.
 
 ## Features
 
-- Browse job listings with a clean, modern UI
+- Fetch real job opportunities from an API
+- Display job listings with clean, modern UI
 - View detailed job descriptions
-- Filter jobs by various criteria
-- Responsive design for mobile, tablet, and desktop
-- Clean, accessible UI with proper spacing and typography
+- Handle loading states and errors gracefully
+- Responsive design that works on mobile, tablet, and desktop
+
+## Screenshots
+
+### Home Page
+
+![Home Page](./screenshots/home-page1.png)
+
+![Home Page](./screenshots/home-page2.png)
+
+The home page displays a list of all available job opportunities with a clean, card-based layout. Each job card shows:
+
+- Company logo
+- Job title
+- Company name and location
+- Brief job description
+- Tags for job categories and type
+- Applicant count and posting date
+
+### Job Detail Page
+
+![Job Detail Page](./screenshots/job-detail.png)
+
+The job detail page provides comprehensive information about a specific job opportunity:
+
+- Full job description
+- Responsibilities
+- Requirements
+- Ideal candidate profile
+- When and where information
+- About section with dates, location, and other details
+- Categories and required skills
+
+### Loading States
+
+![Loading State](./screenshots/loading-state.png)
+
+The application shows loading indicators when fetching data from the API.
+
+### Error Handling
+
+![Error Handling](./screenshots/error-handling.png)
+
+The application handles errors gracefully, showing error messages and providing retry options.
+
+## Technical Implementation
+
+### API Integration
+
+The application uses RTK Query to fetch data from the API endpoints:
+
+- `/opportunities/search` - Get all opportunities
+- `/opportunities/:id` - Get a specific opportunity by ID
+
+### Components
+
+- **OpportunitiesList**: Displays a list of all opportunities
+- **OpportunityCard**: Displays a summary of an opportunity in a card format
+- **ErrorMessage**: Shows error messages with retry functionality
+- **Spinner**: Displays loading indicators
+
+### Data Flow
+
+1. The application fetches data from the API using RTK Query
+2. The data is cached in the Redux store
+3. Components access the data using the generated hooks
+4. Loading states and errors are handled appropriately
+
+## Getting Started
+
+1. Clone the repository
+2. Install dependencies with `npm install`
+3. Run the development server with `npm run dev`
+4. Open [http://localhost:3000](http://localhost:3000) in your browser
 
 ## Technologies Used
 
-- **Next.js** – React framework for server-rendered applications
-- **TypeScript** – For type safety and better developer experience
-- **Tailwind CSS** – Utility-first CSS framework for styling
-- **Lucide React** – For beautiful, customizable icons
-
-## Job Listing Homepage
-
-![Screenshot 1](screenshots/homepage.png)
-
-## Job Detail Page
-
-![Screenshot 2](screenshots/job_detail.png)
-
-## How to Run
-
-1. Clone this repository
-   ```sh
-   git clone https://github.com/ablove/Job_Listing_Application.git
-   ```
-2. Navigate to the project directory
-   ```sh
-   cd job-listing-app
-   ```
-3. Install dependencies
-   ```sh
-   npm install
-   ```
-4. Start the development server
-   ```sh
-   npm run dev
-   ```
-5. Open your browser and visit [http://localhost:3000](http://localhost:3000)
-
-## Usage Guide
-
-### Browsing Jobs
-
-- The homepage lists available jobs with company logos and job titles.
-- Use the filters to refine job searches by categories, type, or location.
-
-### Viewing Job Details
-
-- Click on any job card to see a detailed description.
-- The details include job responsibilities, ideal candidate profile, required skills, and company information.
-
-## Project Structure
-
-```
-job-listing-app/
-├── app/
-│   ├── dashboard/
-│   │   └── page.tsx         # Dashboard page
-│   ├── job/
-│   │   └── [id]/
-│   │       └── page.tsx     # Job detail page
-│   ├── globals.css          # Global styles
-│   ├── layout.tsx           # Root layout
-│   └── page.tsx             # Home page
-├── components/
-│   ├── job-card.tsx         # Job card component
-│   └── job-description.tsx  # Job description component
-├── data/
-│   └── job-data.ts          # Static job data
-├── public/
-│   └── logos/               # Company logos
-├── types/
-│   └── job.ts               # TypeScript interfaces
-├── screenshots/             # Screenshots for README
-├── package.json
-├── tsconfig.json
-├── tailwind.config.js
-└── README.md
-```
-
-## Future Enhancements
-
-- User authentication and profiles
-- Job application functionality
-- Advanced search and filtering
-- Company profiles
-- Job alerts and notifications
-- Admin dashboard for job management
-- Integration with a backend API for dynamic data
-
-## Contributing
-
-Contributions are welcome! To contribute:
-
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add some amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
-
-## License
-
-This project is licensed under the MIT License - see the LICENSE file for details.
+- **Next.js**: React framework for server-rendered applications
+- **TypeScript**: For type safety and better developer experience
+- **Tailwind CSS**: Utility-first CSS framework for styling
+- **Redux Toolkit**: State management with RTK Query for data fetching
+- **Lucide React**: For beautiful, customizable icons
