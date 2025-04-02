@@ -83,13 +83,13 @@ export default function OpportunityDetailPage() {
   // Split responsibilities and requirements into arrays for better display
   const responsibilitiesList = opportunity.responsibilities
     .split("\n")
-    .filter((item: any) => item.trim());
+    .filter((item) => item.trim());
   const requirementsList = opportunity.requirements
     .split("\n")
-    .filter((item: any) => item.trim());
+    .filter((item) => item.trim());
   const idealCandidateList = opportunity.idealCandidate
     .split("\n")
-    .filter((item: any) => item.trim());
+    .filter((item) => item.trim());
 
   return (
     <div className="min-h-screen bg-gray-50 py-8 px-4 sm:px-6 lg:px-8">
@@ -137,16 +137,14 @@ export default function OpportunityDetailPage() {
                       : "Virtual"}
                   </span>
 
-                  {opportunity.categories.map(
-                    (category: string, index: number) => (
-                      <span
-                        key={index}
-                        className="px-3 py-1 bg-yellow-50 text-yellow-600 rounded-full text-xs font-medium"
-                      >
-                        {category}
-                      </span>
-                    )
-                  )}
+                  {opportunity.categories.map((category, index) => (
+                    <span
+                      key={index}
+                      className="px-3 py-1 bg-yellow-50 text-yellow-600 rounded-full text-xs font-medium"
+                    >
+                      {category}
+                    </span>
+                  ))}
                 </div>
               </div>
             </div>
@@ -169,7 +167,7 @@ export default function OpportunityDetailPage() {
                   Responsibilities
                 </h2>
                 <ul className="space-y-2">
-                  {responsibilitiesList.map((item: string, index: number) => (
+                  {responsibilitiesList.map((item, index) => (
                     <li key={index} className="flex items-start gap-2">
                       <div className="w-5 h-5 rounded-full bg-green-100 text-green-500 flex items-center justify-center flex-shrink-0 mt-1">
                         ✓
@@ -185,7 +183,7 @@ export default function OpportunityDetailPage() {
                   Requirements
                 </h2>
                 <ul className="space-y-2">
-                  {requirementsList.map((item: string, index: number) => (
+                  {requirementsList.map((item, index) => (
                     <li key={index} className="flex items-start gap-2">
                       <div className="w-5 h-5 rounded-full bg-blue-100 text-blue-500 flex items-center justify-center flex-shrink-0 mt-1">
                         •
@@ -201,7 +199,7 @@ export default function OpportunityDetailPage() {
                   Ideal Candidate
                 </h2>
                 <ul className="space-y-2">
-                  {idealCandidateList.map((item: string, index: number) => (
+                  {idealCandidateList.map((item, index) => (
                     <li key={index} className="flex items-start gap-2">
                       <div className="w-5 h-5 rounded-full bg-yellow-100 text-yellow-500 flex items-center justify-center flex-shrink-0 mt-1">
                         ★
@@ -306,16 +304,14 @@ export default function OpportunityDetailPage() {
                   Required Skills
                 </h3>
                 <div className="flex flex-wrap gap-2">
-                  {opportunity.requiredSkills.map(
-                    (skill: string, index: number) => (
-                      <span
-                        key={index}
-                        className="px-3 py-1 bg-indigo-50 text-indigo-600 rounded-full text-xs font-medium"
-                      >
-                        {skill}
-                      </span>
-                    )
-                  )}
+                  {opportunity.requiredSkills.map((skill, index) => (
+                    <span
+                      key={index}
+                      className="px-3 py-1 bg-indigo-50 text-indigo-600 rounded-full text-xs font-medium"
+                    >
+                      {skill}
+                    </span>
+                  ))}
                 </div>
               </div>
 

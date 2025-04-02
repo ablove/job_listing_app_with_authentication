@@ -1,14 +1,16 @@
-# Job Listing Application
+# Job Listing Application with Authentication
 
-A modern, responsive job listing application built with Next.js, Tailwind CSS, and RTK Query. This application allows users to browse job opportunities, view detailed job descriptions, and filter jobs by various criteria.
+A modern, responsive job listing application built with Next.js, Tailwind CSS, RTK Query, and NextAuth.js. This application allows users to browse job opportunities, view detailed job descriptions, and manage their accounts.
 
 ## Features
 
-- Fetch real job opportunities from an API
-- Display job listings with clean, modern UI
+- User authentication (signup, signin, email verification)
+- Browse job opportunities from an API
 - View detailed job descriptions
-- Handle loading states and errors gracefully
-- Responsive design that works on mobile, tablet, and desktop
+- Protected routes for authenticated users
+- Responsive design for all devices
+- Form validation and error handling
+- Secure session management using NextAuth.js
 
 ## Screenshots
 
@@ -16,9 +18,7 @@ A modern, responsive job listing application built with Next.js, Tailwind CSS, a
 
 ![Home Page](./screenshots/home-page1.png)
 
-![Home Page](./screenshots/home-page2.png)
-
-The home page displays a list of all available job opportunities with a clean, card-based layout. Each job card shows:
+The home page displays a list of available job opportunities in a clean, card-based layout. Each job card includes:
 
 - Company logo
 - Job title
@@ -27,66 +27,118 @@ The home page displays a list of all available job opportunities with a clean, c
 - Tags for job categories and type
 - Applicant count and posting date
 
+### Sign Up Page
+
+![Sign Up Page](./screenshots/signUP.png)
+
+The sign-up page allows new users to create an account by providing:
+
+- Full name
+- Email address
+- Password (with strength requirements)
+- Email verification process
+
+### Email Verification Page
+
+![Email Verify Page](./screenshots/verify-email.png)
+
+The email verification page ensures that users confirm their email address before accessing their accounts.
+
+### Sign In Page
+
+![Sign In Page](./screenshots/login.png)
+
+The sign-in page provides a secure login experience with:
+
+- Email and password authentication
+- Error handling for invalid credentials
+- Password recovery option
+
 ### Job Detail Page
 
 ![Job Detail Page](./screenshots/job-detail.png)
 
-The job detail page provides comprehensive information about a specific job opportunity:
+The job detail page provides comprehensive information about a specific job opportunity, including:
 
 - Full job description
 - Responsibilities
 - Requirements
 - Ideal candidate profile
-- When and where information
-- About section with dates, location, and other details
-- Categories and required skills
-
-### Loading States
-
-![Loading State](./screenshots/loading-state.png)
-
-The application shows loading indicators when fetching data from the API.
-
-### Error Handling
-
-![Error Handling](./screenshots/error-handling.png)
-
-The application handles errors gracefully, showing error messages and providing retry options.
+- When and where details
+- About section with important dates, location, and other relevant information
 
 ## Technical Implementation
 
+### Authentication
+
+The application uses NextAuth.js (v5) for authentication, including:
+
+- Custom credential provider for email/password authentication
+- JWT-based session management
+- Protected routes with middleware
+- Client and server-side session handling
+
 ### API Integration
 
-The application uses RTK Query to fetch data from the API endpoints:
+The application integrates with an external API using RTK Query:
 
-- `/opportunities/search` - Get all opportunities
-- `/opportunities/:id` - Get a specific opportunity by ID
+- `GET /opportunities/search` - Fetch all job opportunities
+- `GET /opportunities/:id` - Retrieve details of a specific job
+- `POST /signup` - Register a new user
+- `POST /verify-email` - Verify user email with OTP
+- `POST /login` - Authenticate a user
 
-### Components
+### Form Validation
 
-- **OpportunitiesList**: Displays a list of all opportunities
-- **OpportunityCard**: Displays a summary of an opportunity in a card format
-- **ErrorMessage**: Shows error messages with retry functionality
-- **Spinner**: Displays loading indicators
+All forms utilize React Hook Form with Zod for validation, ensuring:
 
-### Data Flow
-
-1. The application fetches data from the API using RTK Query
-2. The data is cached in the Redux store
-3. Components access the data using the generated hooks
-4. Loading states and errors are handled appropriately
+- Email format validation
+- Password strength enforcement
+- Required field validation
+- Proper error messaging for invalid inputs
 
 ## Getting Started
 
-1. Clone the repository
-2. Install dependencies with `npm install`
-3. Run the development server with `npm run dev`
-4. Open [http://localhost:3000](http://localhost:3000) in your browser
+1. Clone the repository:
+   ```sh
+   git clone https://github.com/your-repo/job-listing-app.git
+   ```
+2. Navigate to the project directory:
+   ```sh
+   cd job-listing-app
+   ```
+3. Install dependencies:
+   ```sh
+   npm install
+   ```
+4. Create a `.env.local` file and add the following environment variables:
+   
+   ```env
+   # Authentication
+   AUTH_SECRET=8f9a12b3c4d5e6f7g8h9i0j1k2l3m4n5o6p7q8r9s0t1u2v3w4x5y6z7
+   NEXTAUTH_URL=http://localhost:3000
+   
+   # API URL
+   NEXT_PUBLIC_API_URL=https://akil-backend.onrender.com
+   ```
 
-## Technologies Used
+5. Start the development server:
+   ```sh
+   npm run dev
+   ```
 
-- **Next.js**: React framework for server-rendered applications
-- **TypeScript**: For type safety and better developer experience
-- **Tailwind CSS**: Utility-first CSS framework for styling
-- **Redux Toolkit**: State management with RTK Query for data fetching
-- **Lucide React**: For beautiful, customizable icons
+6. Open [http://localhost:3000](http://localhost:3000) in your browser to view the application.
+
+## Contributing
+
+Contributions are welcome! Please follow these steps:
+
+1. Fork the repository.
+2. Create a new branch (`feature-branch-name`).
+3. Make your changes and commit them.
+4. Push the changes and submit a pull request.
+
+## License
+
+This project is licensed under the MIT License. See the `LICENSE` file for details.
+
