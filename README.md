@@ -16,7 +16,7 @@ A modern, responsive job listing application built with Next.js, Tailwind CSS, R
 
 ### Home Page
 
-![Home Page](./screenshots/home-page1.png)
+![Home Page](./screenshots/home-page.png)
 
 The home page displays a list of available job opportunities in a clean, card-based layout. Each job card includes:
 
@@ -29,7 +29,7 @@ The home page displays a list of available job opportunities in a clean, card-ba
 
 ### Sign Up Page
 
-![Sign Up Page](./screenshots/signUP.png)
+![Sign Up Page](./screenshots/sign-up.png)
 
 The sign-up page allows new users to create an account by providing:
 
@@ -46,7 +46,7 @@ The email verification page ensures that users confirm their email address befor
 
 ### Sign In Page
 
-![Sign In Page](./screenshots/login.png)
+![Sign In Page](./screenshots/signin.png)
 
 The sign-in page provides a secure login experience with:
 
@@ -56,7 +56,7 @@ The sign-in page provides a secure login experience with:
 
 ### Job Detail Page
 
-![Job Detail Page](./screenshots/job-detail.png)
+![Job Detail Page](./screenshots/job-details.png)
 
 The job detail page provides comprehensive information about a specific job opportunity, including:
 
@@ -112,17 +112,18 @@ All forms utilize React Hook Form with Zod for validation, ensuring:
    npm install
    ```
 4. Create a `.env.local` file and add the following environment variables:
-   
+
    ```env
    # Authentication
    AUTH_SECRET=8f9a12b3c4d5e6f7g8h9i0j1k2l3m4n5o6p7q8r9s0t1u2v3w4x5y6z7
    NEXTAUTH_URL=http://localhost:3000
-   
+
    # API URL
    NEXT_PUBLIC_API_URL=https://akil-backend.onrender.com
    ```
 
 5. Start the development server:
+
    ```sh
    npm run dev
    ```
@@ -141,4 +142,3 @@ Contributions are welcome! Please follow these steps:
 ## License
 
 This project is licensed under the MIT License. See the `LICENSE` file for details.
-
